@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "publish": "npm version $1; build -m -p always"
+    "publish-patch": "git add .; git commit -m 'Update'; npm version patch; build -m -p always",
+    "publish-minor": "git add .; git commit -m 'Update'; npm version minor; build -m -p always",
+    "publish-major": "git add .; git commit -m 'Update'; npm version major; build -m -p always"
   },
   "repository": {
     "type": "git",
