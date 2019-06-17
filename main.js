@@ -33,7 +33,6 @@ autoUpdater.on('update-downloaded', (info) => {
 let mainWindow
 let loader;
 function createWindow () {
-  // Create the browser window.
   loader.destroy();
   if(mainWindow) return;
     mainWindow = new BrowserWindow({
