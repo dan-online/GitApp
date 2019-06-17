@@ -1,6 +1,6 @@
 {
   "name": "Github-Web",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -8,23 +8,30 @@
     "publish": "npm version $1; build -m -p always"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/dan-online/Github-WebApp"
+    "type": "git",
+    "url": "https://github.com/dan-online/Github-WebApp"
   },
-
   "build": {
-    "publish": [{
+    "publish": [
+      {
         "provider": "github",
         "owner": "dan-online",
         "repo": "Github-WebApp"
-    }],
+      }
+    ],
     "appId": "com.github.dan-online.GithubWebApp"
   },
   "win": {
-    "publish": ["github", "bintray"]
+    "publish": [
+      "github",
+      "bintray"
+    ]
   },
   "mac": {
-    "publish": ["github", "bintray"]
+    "publish": [
+      "github",
+      "bintray"
+    ]
   },
   "keywords": [
     "Electron app",
