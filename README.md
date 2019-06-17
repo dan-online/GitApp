@@ -1,11 +1,11 @@
 ![](./build/logo.png)
-# Github-Web
+# GitApp
 
 A simple app for working on github.com
 
-# [Download](https://github.com/dan-online/Github-WebApp/releases)
+# [Download](https://github.com/dan-online/GitApp/releases)
 
-All downloads are [here](https://github.com/dan-online/Github-WebApp/releases)
+All downloads are [here](https://github.com/dan-online/GitApp/releases)
 
 
 ## Development
