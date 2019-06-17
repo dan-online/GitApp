@@ -1,6 +1,6 @@
 {
   "name": "Github-Web",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
