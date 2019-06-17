@@ -1,25 +1,42 @@
 {
   "name": "Github-Web",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "publish": "build -m -p always"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/dan-online/Github-WebApp"
+  },
+
   "build": {
-    "appId": "github.com"
+    "publish": [{
+        "provider": "github",
+        "owner": "dan-online",
+        "repo": "Github-WebApp"
+    }],
+    "appId": "com.github.github-app"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "win": {
+    "publish": ["github", "bintray"]
+  },
+  "mac": {
+    "publish": ["github", "bintray"]
+  },
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Electron app",
+    "Github Web",
+    "Github App"
   ],
-  "author": "GitHub",
+  "author": "DanCodes",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.2"
+  },
+  "dependencies": {
+    "electron-updater": "^4.0.6"
   }
 }
