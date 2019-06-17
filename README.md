@@ -1,2 +1,17 @@
+![](./build/logo.png)
 # Github-Web
-This is a realllyy simple webapp for github I made for Mac in like 5 minutes.
+
+A simple app for working on github.com
+
+## Development
+
+```bash
+$ npm install
+$ npm start
+```
+
+## Building
+
+```bash
+$ build --mac/--windows
+```
