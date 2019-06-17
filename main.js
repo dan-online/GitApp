@@ -2,6 +2,7 @@
 const {app, BrowserWindow} = require('electron');
 
 const { autoUpdater } = require("electron-updater")
+autoUpdater.channel = 'latest';
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
@@ -14,7 +15,7 @@ autoUpdater.on('update-not-available', (info) => {
   createWindow();
 })
 autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in update!');
+  sendStatusToWindow('Error in update!', err);
   createWindow();
 })
 autoUpdater.on('download-progress', (progressObj) => {
@@ -34,7 +35,7 @@ let loader;
 function createWindow () {
   // Create the browser window.
   loader.destroy();
-    autoUpdater.checkForUpdates();
+  if(mainWindow) return;
     mainWindow = new BrowserWindow({
       width: 800,
       height: 600,
@@ -53,8 +54,8 @@ function createWindow () {
     mainWindow = null
   })
 }
-function sendStatusToWindow(text) {
-  loader.webContents.send('message', text);
+function sendStatusToWindow(text, err) {
+  loader.webContents.send('message', text, err);
 }
 app.on('ready', function() {
   loader = new BrowserWindow({

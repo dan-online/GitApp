@@ -18,7 +18,7 @@
         "owner": "dan-online",
         "repo": "Github-WebApp"
     }],
-    "appId": "com.github.github-app"
+    "appId": "com.github.dan-online.GithubWebApp"
   },
   "win": {
     "publish": ["github", "bintray"]
