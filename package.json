@@ -5,9 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "publish-patch": "git add .; git commit -m 'Update'; npm version patch; sudo build -m -p always; git push origin master",
-    "publish-minor": "git add .; git commit -m 'Update'; npm version minor; sudo build -m -p always; git push origin master",
-    "publish-major": "git add .; git commit -m 'Update'; npm version major; sudo build -m -p always; git push origin master"
+    "publish-patch": "git add .; git commit -m 'Update'; npm version patch; sudo rm -rf dist; sudo build -m -p always; git push origin master",
+    "publish-minor": "git add .; git commit -m 'Update'; npm version minor; sudo rm -rf dist; sudo build -m -p always; git push origin master",
+    "publish-major": "git add .; git commit -m 'Update'; npm version major; sudo rm -rf dist; sudo build -m -p always; git push origin master"
   },
   "repository": {
     "type": "git",
