@@ -1,0 +1,4 @@
+owner: dan-online
+repo: GitApp
+provider: github
+updaterCacheDirName: github-web-updater

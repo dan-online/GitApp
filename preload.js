@@ -1,8 +1,9 @@
 window.onload = function() {
-    document.getElementsByTagName('header')[0].style.position = 'fixed';
-    document.getElementsByTagName('header')[0].style.top = '0';
-    document.getElementsByTagName('header')[0].style.left = '0';
-    document.getElementsByTagName('header')[0].style.width = '100%';
-    document.getElementsByTagName('header')[0].style.zIndex = '9999999999999999';
-    document.getElementsByClassName('application-main')[0].style.marginTop = '7%';
+    const div = document.getElementsByTagName('header')[0];
+    div.style.position = 'fixed';
+    div.style.top = '0';
+    div.style.left = '0';
+    div.style.width = '100%';
+    div.style.zIndex = '9999999999999999';
+    document.getElementsByClassName('main')[0].style.paddingTop = '7%';
 }
