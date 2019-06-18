@@ -1,5 +1,0 @@
-version: 2.2.6
-files:
-  - url: GitApp-mac.zip
-  - url: GitApp-mac.dmg
-path: GitApp-mac.zip
