@@ -1,30 +1,41 @@
 
 const {app, BrowserWindow} = require('electron');
-
+const log = require('electron-log');
 const { autoUpdater } = require("electron-updater")
 autoUpdater.channel = 'latest';
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
+
 
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
 autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
+  sendStatusToWindow('Updating...');
 })
 autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Update not available.');
+  sendStatusToWindow('Starting...');
   createWindow();
 })
 autoUpdater.on('error', (err) => {
   sendStatusToWindow('Error in update!', err);
-  createWindow();
+  setTimeout(() => {
+    createWindow();
+  },3000)
 })
+
+
+
 autoUpdater.on('download-progress', (progressObj) => {
-  log_message = 'Updating ' + progressObj.percent + '%';
+  log_message = 'Updating ' + Math.round(progressObj.percent) + '%';
   sendStatusToWindow(log_message);
 })
 autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
-  return autoUpdater.quitAndInstall();
+  sendStatusToWindow('Installing...');
+  setTimeout(() => {
+    return autoUpdater.quitAndInstall();
+  },3000)
 });
 
 
@@ -36,7 +47,6 @@ function createWindow () {
     mainWindow = new BrowserWindow({
       width: 800,
       height: 600,
-      frame: false,
       webPreferences: {
         preload: __dirname + '/preload.js'
       },
