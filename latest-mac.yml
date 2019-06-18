@@ -1,4 +1,10 @@
-owner: dan-online
-repo: GitApp
-provider: github
-updaterCacheDirName: github-web-updater
+version: 0.7.1
+files:
+  - url: electron-updater-example-0.7.1-mac.zip
+    sha512: MYriKFeuaehnObc7MOsEAYqBA7A8vtiYAr82TBLkoWz3MDjdvs+jpXsipDpJVqDxnGm6tC8Qr2WPPaJJEV2QEw==
+  - url: electron-updater-example-0.7.1.dmg
+    sha512: iyvVdiH51Bq734Vkawd/ozUsZ2Qi0uvWueezy4bisEVIWD4FG7RBIVx1kYVJh/Ms+wW7OnhuHKiHFtdc13EBqg==
+    size: 51638295
+path: electron-updater-example-0.7.1-mac.zip
+sha512: MYriKFeuaehnObc7MOsEAYqBA7A8vtiYAr82TBLkoWz3MDjdvs+jpXsipDpJVqDxnGm6tC8Qr2WPPaJJEV2QEw==
+releaseDate: '2018-10-03T22:55:03.249Z'
