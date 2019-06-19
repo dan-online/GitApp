@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "release": "sudo rm -rf dist; sudo build -mwl -p always"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
         "releaseType": "prerelease"
       }
     ],
+    "artifactName": "${productName}-${os}.${ext}",
     "appId": "com.github.dan-online.GitApp"
   },
   "keywords": [

@@ -43,8 +43,7 @@ autoUpdater.on('update-downloaded', (info) => {
 let mainWindow
 let loader;
 function createWindow () {
-  loader.destroy();
-  if(mainWindow) return;
+  sendStatusToWindow('Starting...');
     mainWindow = new BrowserWindow({
       width: 1000,
       height: 600,
@@ -54,6 +53,7 @@ function createWindow () {
       show: false 
     })
   mainWindow.on('ready-to-show', () => {
+    loader.destroy();
     mainWindow.show();
     //loader.destroy();
   })
