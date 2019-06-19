@@ -65,7 +65,7 @@ function createWindow () {
 }
 function sendStatusToWindow(text, err) {
   console.log(text);
-  if(err) console.error('Error: ' + error)
+  if(err) console.error('Error: ' + err)
   loader.webContents.send('message', text, err);
 }
 app.on('ready', function() {
