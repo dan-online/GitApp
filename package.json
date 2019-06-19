@@ -35,9 +35,7 @@
     "electron": "^5.0.2"
   },
   "dependencies": {
-    "custom-electron-titlebar": "^3.0.9",
     "electron-log": "^3.0.6",
-    "electron-titlebar": "0.0.3",
     "electron-updater": "^4.0.6"
   }
 }
