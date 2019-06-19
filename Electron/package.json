@@ -32,7 +32,7 @@
   "author": "DanCodes",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^5.0.2"
+    "electron": "^5.0.4"
   },
   "dependencies": {
     "electron-log": "^3.0.6",
