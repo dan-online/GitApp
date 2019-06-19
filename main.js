@@ -1,7 +1,8 @@
 
 const {app, BrowserWindow} = require('electron');
 const log = require('electron-log');
-const { autoUpdater } = require("electron-updater")
+const { autoUpdater } = require("electron-updater");
+
 autoUpdater.channel = 'latest';
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
@@ -45,7 +46,7 @@ function createWindow () {
   loader.destroy();
   if(mainWindow) return;
     mainWindow = new BrowserWindow({
-      width: 800,
+      width: 1000,
       height: 600,
       webPreferences: {
         preload: __dirname + '/preload.js'
@@ -53,10 +54,10 @@ function createWindow () {
       show: false 
     })
   mainWindow.on('ready-to-show', () => {
-    mainWindow.show()
+    mainWindow.show();
     //loader.destroy();
   })
-  mainWindow.loadURL('https://github.com')
+  mainWindow.loadURL('https://github.com');
 
   mainWindow.on('closed', function () {
     mainWindow = null
@@ -70,6 +71,7 @@ app.on('ready', function() {
     width: 300,
     height: 300,
     frame: false,
+    resizable: false,
     webPreferences: {
       nodeIntegration: true
     }
