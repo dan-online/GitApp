@@ -1,14 +1,14 @@
 {
   "name": "GitApp",
-  "version": "2.4.10",
+  "version": "2.4.11",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "release": "sudo rm -rf dist; sudo build -mwl -p always",
-    "release-patch": "sudo rm -rf dist; sudo build -mwl -p always",
-    "release-minor": "sudo rm -rf dist; sudo build -mwl -p always",
-    "release-major": "sudo rm -rf dist; sudo build -mwl -p always"
+    "release-patch": "npm version patch; sudo rm -rf dist; sudo build -mwl -p always",
+    "release-minor": "npm version minor; sudo rm -rf dist; sudo build -mwl -p always",
+    "release-major": "npm version major; sudo rm -rf dist; sudo build -mwl -p always"
   },
   "repository": {
     "type": "git",
