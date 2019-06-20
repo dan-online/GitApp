@@ -53,7 +53,8 @@ function createWindow () {
       show: false 
     })
   mainWindow.on('ready-to-show', () => {
-    loader.destroy();
+    if(loader != null) loader.destroy();
+    loader = null;
     mainWindow.show();
     //loader.destroy();
   })
@@ -64,7 +65,7 @@ function createWindow () {
   })
 }
 function sendStatusToWindow(text, err) {
-  if(!loader) return;
+  if(loader == null) return;
   if(text) console.log(text);
   if(err) console.error('Error: ' + err)
   loader.webContents.send('message', text, err);
