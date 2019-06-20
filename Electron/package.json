@@ -5,7 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "release": "sudo rm -rf dist; sudo build -mwl -p always"
+    "release": "sudo rm -rf dist; sudo build -mwl -p always",
+    "release-patch": "sudo rm -rf dist; sudo build -mwl -p always",
+    "release-minor": "sudo rm -rf dist; sudo build -mwl -p always",
+    "release-major": "sudo rm -rf dist; sudo build -mwl -p always"
   },
   "repository": {
     "type": "git",
