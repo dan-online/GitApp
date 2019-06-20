@@ -1,6 +1,6 @@
 {
   "name": "GitApp",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
