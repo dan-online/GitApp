@@ -1,10 +1,22 @@
 
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 const fs = require("file-system");
 const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
 app.mainWindow = null;
 app.loader = null;
+try {app.config = require(app.getPath('userData') + '/data.json')} catch (err) {app.config = null;}
+
+function toggleBeta() {
+  if(app.config) {
+    fs.unlinkSync(app.getPath('userData') + '/data.json');
+    app.config = null;
+  } else {
+    fs.writeFileSync(app.getPath('userData') + '/data.json', `{"beta": true}`);
+    app.config = require(app.getPath('userData') + '/data.json')
+  }
+  app.quit();
+}
 
 function addListener(err, files, on) {
   files.forEach(f => {
@@ -23,7 +35,6 @@ function addListener(err, files, on) {
     }
   });
 }
-
 function sendStatusToWindow(text, err) {
   if(app.loader == null) return;
   if(text) console.log(text);
@@ -34,9 +45,11 @@ function sendStatusToWindow(text, err) {
 fs.readdir(__dirname + '/events/app', {}, function(err, files) {
   addListener(err, files, 'app');
 });
-fs.readdir(__dirname + '/events/autoUpdater', {}, function(err, files) {
-  addListener(err, files, 'autoUpdater');
-});
+if(!app.config) {
+  fs.readdir(__dirname + '/events/autoUpdater', {}, function(err, files) {
+    addListener(err, files, 'autoUpdater');
+  });
+}
 
 autoUpdater.channel = 'latest';
 autoUpdater.logger = log;
@@ -69,4 +82,4 @@ function createWindow () {
 
 
 
-module.exports = {autoUpdater, app, sendStatusToWindow, createWindow, BrowserWindow};
+module.exports = {autoUpdater, app, sendStatusToWindow, createWindow, BrowserWindow, Menu, toggleBeta, createWindow};
