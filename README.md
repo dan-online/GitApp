@@ -22,5 +22,5 @@ $ npm start
 ## Building
 
 ```bash
-$ build --mac/--windows
+$ build --mac/--windows/--linux
 ```
