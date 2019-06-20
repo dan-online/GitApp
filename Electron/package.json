@@ -21,9 +21,12 @@
         "owner": "dan-online",
         "repo": "GitApp",
         "publishAutoUpdate": true,
-        "releaseType": "release"
+        "releaseType": "prerelease"
       }
     ],
+    "dmg": {
+      "background": "./build/icon.gif"
+    },
     "artifactName": "${productName}-${os}.${ext}",
     "appId": "com.github.dan-online.GitApp"
   },
