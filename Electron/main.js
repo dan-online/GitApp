@@ -31,10 +31,10 @@ function sendStatusToWindow(text, err) {
   app.loader.webContents.send('message', text, err);
 }
 
-fs.readdir('./events/app', {}, function(err, files) {
+fs.readdir(__dirname + '/events/app', {}, function(err, files) {
   addListener(err, files, 'app');
 });
-fs.readdir('./events/autoUpdater', {}, function(err, files) {
+fs.readdir(__dirname + '/events/autoUpdater', {}, function(err, files) {
   addListener(err, files, 'autoUpdater');
 });
 
