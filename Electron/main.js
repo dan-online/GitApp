@@ -1,7 +1,9 @@
 
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain, ipcRenderer} = require('electron');
 const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
+var where = '';
+
 
 autoUpdater.channel = 'latest';
 autoUpdater.logger = log;
@@ -16,7 +18,6 @@ autoUpdater.on('update-available', (info) => {
   sendStatusToWindow('Updating...');
 })
 autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Starting...');
   createWindow();
 })
 autoUpdater.on('error', (err) => {
@@ -26,12 +27,11 @@ autoUpdater.on('error', (err) => {
   },3000)
 })
 
-
-
 autoUpdater.on('download-progress', (progressObj) => {
   log_message = 'Updating ' + Math.round(progressObj.percent) + '%';
   sendStatusToWindow(log_message);
 })
+
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Installing...');
   setTimeout(() => {
@@ -43,6 +43,7 @@ autoUpdater.on('update-downloaded', (info) => {
 let mainWindow
 let loader;
 function createWindow () {
+  console.log(where);
   sendStatusToWindow('Starting...');
     mainWindow = new BrowserWindow({
       width: 1200,
@@ -60,7 +61,8 @@ function createWindow () {
     mainWindow.show();
     //loader.destroy();
   })
-  mainWindow.loadURL('https://github.com');
+  if(!where || where.length < 2) mainWindow.loadURL('https://github.com');
+    else mainWindow.loadURL(where);
 
   mainWindow.on('closed', function () {
     mainWindow = null
