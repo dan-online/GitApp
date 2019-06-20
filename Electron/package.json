@@ -1,6 +1,6 @@
 {
   "name": "GitApp",
-  "version": "2.4.9",
+  "version": "2.4.10",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
@@ -18,7 +18,7 @@
         "owner": "dan-online",
         "repo": "GitApp",
         "publishAutoUpdate": true,
-        "releaseType": "prerelease"
+        "releaseType": "release"
       }
     ],
     "artifactName": "${productName}-${os}.${ext}",
