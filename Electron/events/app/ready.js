@@ -61,6 +61,8 @@ module.exports.func = function() {
     app.loader.loadURL('file:///' + __dirname.split('/events')[0] + '/loader/index.html');
     if(app.config && app.config.beta) autoUpdater.allowPrerelease = true;
     autoUpdater.checkForUpdates().catch(err => {
-        createWindow()
+        createWindow();
+    }).then(() => {
+        createWindow();
     })
 }

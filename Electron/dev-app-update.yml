@@ -1,0 +1,4 @@
+version: 2.6.1
+provider: github
+repo: GitApp
+owner: dan-online
