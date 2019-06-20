@@ -45,8 +45,10 @@ let loader;
 function createWindow () {
   sendStatusToWindow('Starting...');
     mainWindow = new BrowserWindow({
-      width: 1000,
-      height: 600,
+      width: 1200,
+      height: 800,
+      frame: false,
+      titleBarStyle: 'hidden',
       webPreferences: {
         preload: __dirname + '/preload.js'
       },
