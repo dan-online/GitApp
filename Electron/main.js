@@ -5,15 +5,16 @@ const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
 app.mainWindow = null;
 app.loader = null;
-try {app.config = require(app.getPath('userData') + '/data.json')} catch (err) {app.config = null;}
 
 function toggleBeta() {
   if(app.config) {
-    fs.unlinkSync(app.getPath('userData') + '/data.json');
+    try {
+      fs.unlinkSync(app.getPath('userData') + '/data.json')
+    } catch (err) {}
     app.config = null;
   } else {
     fs.writeFileSync(app.getPath('userData') + '/data.json', `{"beta": true}`);
-    app.config = require(app.getPath('userData') + '/data.json')
+    app.config = {"beta": true};
   }
   app.quit();
 }
@@ -80,6 +81,9 @@ function createWindow () {
   })
 }
 
-
+process.on('uncaughtException', function (err) {
+  console.error(err);
+  return;
+})
 
 module.exports = {autoUpdater, app, sendStatusToWindow, createWindow, BrowserWindow, Menu, toggleBeta, createWindow};

@@ -1,7 +1,8 @@
 module.exports.on = 'app';
 const {app,autoUpdater, BrowserWindow, Menu, toggleBeta, createWindow} = require('../../main');
 module.exports.func = function() {
-    if(app.config) var beta = 'Enable Beta';
+    try {app.config = require(app.getPath('userData') + '/data.json')} catch (err) {app.config = null;}
+    if(!app.config) var beta = 'Enable Beta';
         else var beta = 'Disable Beta';
     const menuTemplate = [
         {
