@@ -1,7 +1,7 @@
 particlesJS("particleCanvas-Blue", {
 	particles: {
 		number: {
-			value: 100,
+			value: 500,
 			density: {
 				enable: true,
 				value_area: 800
@@ -112,7 +112,7 @@ particlesJS("particleCanvas-Blue", {
 particlesJS("particleCanvas-White", {
 	particles: {
 		number: {
-			value: 250,
+			value: 500,
 			density: {
 				enable: true,
 				value_area: 800

@@ -1,10 +1,11 @@
 
-const {app, BrowserWindow, Menu} = require('electron');
+const {app, BrowserWindow, Menu, ipcMain} = require('electron');
 const fs = require("file-system");
 const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
 app.mainWindow = null;
 app.loader = null;
+app.window = {};
 
 function toggleBeta() {
   if(app.config) {
@@ -68,23 +69,29 @@ function createWindow () {
         preload: __dirname + '/preload.js'
       },
       show: false 
-    })
+    });
   app.mainWindow.on('ready-to-show', () => {
     if(app.loader != null) app.loader.destroy();
     app.loader = null;
     app.mainWindow.show();
     //loader.destroy();
-  })
-  app.mainWindow.loadURL('https://github.com');
+  });
+  if(app.window && app.window.location && app.window.location.href) app.mainWindow.loadURL(app.window.location.href);
+    else app.mainWindow.loadURL('https://github.com');
 
   app.mainWindow.on('closed', function () {
     app.mainWindow = null
   })
 }
 
+ipcMain.on('url_send', (err, data) => {
+  app.window.location = data.location;
+})
+
 process.on('uncaughtException', function (err) {
   console.error(err);
-  return;
+  return
 })
+
 
 module.exports = {autoUpdater, app, sendStatusToWindow, createWindow, BrowserWindow, Menu, toggleBeta, createWindow};

@@ -59,7 +59,7 @@ module.exports.func = function() {
     app.loader.on('ready-to-show', function() {
         app.loader.show();
     })
-    app.loader.loadURL('file:///' + __dirname.split('/events')[0] + '/loader/index.html');
+    app.loader.loadURL('file:///' + __dirname.split('/events')[0] + '/web/loader/index.html');
     if(app.config && app.config.beta) autoUpdater.allowPrerelease = true;
     autoUpdater.checkForUpdates();
 }
