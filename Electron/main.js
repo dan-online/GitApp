@@ -57,6 +57,7 @@ autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 
 function createWindow () {
+  if(app.mainWindow != null) return;
   sendStatusToWindow('Starting...');
     app.mainWindow = new BrowserWindow({
       width: 1200,
