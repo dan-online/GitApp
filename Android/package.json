@@ -1,0 +1,30 @@
+{
+  "name": "GitApp",
+  "version": "2.7.1",
+  "description": "Android version of GitApp",
+  "main": "main.js",
+  "app-name": "GitApp",
+  "package-name": "GitApp",
+  "icon": "./assets/icon.png",
+  "permission": [
+    "android.permission.INTERNET"
+  ],
+  "dist-path": "./dist",
+  "scripts": {
+    "package": "androidjs b -f",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-online/GitApp.git"
+  },
+  "author": "dan-online",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dan-online/GitApp/issues"
+  },
+  "homepage": "https://github.com/dan-online/GitApp#readme",
+  "dependencies": {
+    "androidjs": "^1.0.12"
+  }
+}

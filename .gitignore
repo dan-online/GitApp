@@ -1,3 +1,5 @@
 Desktop/node_modules
 Desktop/dist/
 Desktop/electron-builder.env
+Android/node_modules/
+Android/dist
