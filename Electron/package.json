@@ -27,7 +27,7 @@
     "dmg": {
       "background": "./build/icon.gif"
     },
-    "artifactName": "${productName}-${os}.${ext}",
+    "artifactName": "${productName}-${os}-${version}.${ext}",
     "appId": "com.github.dan-online.GitApp"
   },
   "keywords": [
