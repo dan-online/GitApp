@@ -17,9 +17,10 @@ All downloads are [here](https://github.com/dan-online/GitApp/releases)
  - MacOS
  - Windows
  - Linux
+ - Android
 
 # To-Do
- - Android App
+ - ~Android App~
  - iOS App
  - Styling the app
 
