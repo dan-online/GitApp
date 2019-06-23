@@ -1,4 +1,4 @@
-![](./build/logo.png)
+![](./Electron/build/logo.png)
 # GitApp
 
 A simple app for working on github.com
