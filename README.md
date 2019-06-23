@@ -3,23 +3,35 @@
 
 A simple app for working on github.com
 
+# Features
+ - Auto Updating to latest github release
+ - Clean delivery of github
+ - Easy use
+ - Clean UI
+
 # [Download](https://github.com/dan-online/GitApp/releases)
 
 All downloads are [here](https://github.com/dan-online/GitApp/releases)
 
-## ToDo
+### Supported devices
+ - MacOS
+ - Windows
+ - Linux
+
+# To-Do
  - Android App
- - IOS App
+ - iOS App
  - Styling the app
 
-## Development
+# Development
 
+### Starting in development
 ```bash
 $ npm install
 $ npm start
 ```
 
-## Building
+### Building
 
 ```bash
 $ build --mac/--windows/--linux
