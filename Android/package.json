@@ -1,13 +1,13 @@
 {
   "name": "GitApp",
-  "version": "2.7.1",
+  "version": "2.7.3",
   "description": "Android version of GitApp",
   "main": "main.js",
   "app-name": "GitApp",
   "package-name": "GitApp",
   "icon": "./assets/icon.png",
   "permission": [
-    "android.permission.INTERNET", 
+    "android.permission.INTERNET",
     "android.permission.WRITE_EXTERNAL_STORAGE"
   ],
   "dist-path": "./dist",
