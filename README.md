@@ -21,8 +21,17 @@ All downloads are [here](https://github.com/dan-online/GitApp/releases)
 
 # To-Do
  - ~Android App~
- - iOS App
  - Styling the app
+
+# Collaborate
+ - All pull requests are welcome
+ - Also issues
+ 
+## Help
+If you know how to make an iOS app, that would be very welcome!
+
+# Contact
+You can contact me with [email](mailto:dan@dancodes.online)
 
 # Development
 
