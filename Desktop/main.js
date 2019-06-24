@@ -74,6 +74,7 @@ function createWindow () {
     if(app.loader != null) app.loader.destroy();
     app.loader = null;
     app.mainWindow.show();
+    // For development: app.mainWindow.webContents.openDevTools();
     //loader.destroy();
   });
   if(app.window && app.window.location && app.window.location.href) app.mainWindow.loadURL(app.window.location.href);

@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const titlebar = new customTitlebar.Titlebar({
         backgroundColor: customTitlebar.Color.fromHex('#24292e'),
     });
-    titlebar.updateTitle('GitApp - ' + require('./package.json.js').version);
+    titlebar.updateTitle('GitApp - ' + require('./package.json').version);
     /*const div = document.getElementsByTagName('header')[0];
     div.setAttribute('style', 'position:fixed!important');
     div.style.top = '10';
