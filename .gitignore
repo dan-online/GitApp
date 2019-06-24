@@ -1,4 +1,4 @@
 node_modules
 dist
 electron-builder.env
-.DS_STORE
+.DS_Store
