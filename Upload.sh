@@ -1,9 +1,9 @@
 cd Desktop;
 npm version $1;
-sudo npm run release;
+sudo npm run release --allow-same-version;
 cd ..;
 cd Android;
-npm version $1;
+npm version $1 --allow-same-version;
 sudo npm run package;
 echo 'Uploading apk...';
 sudo github-release upload \
