@@ -3,6 +3,8 @@ const {app, BrowserWindow, Menu, ipcMain} = require('electron');
 const fs = require("file-system");
 const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
+
+app.notifs = [];
 app.mainWindow = null;
 app.loader = null;
 app.window = {};
@@ -57,42 +59,73 @@ autoUpdater.channel = 'latest';
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 
-function createWindow () {
-  if(app.mainWindow != null) return;
-  sendStatusToWindow('Starting...');
-    app.mainWindow = new BrowserWindow({
-      width: 1200,
-      height: 800,
-      frame: false,
-      titleBarStyle: 'hidden',
+function createBgWindow(cb) {
+    app.bgWindow = new BrowserWindow({
+      show: false,
       webPreferences: {
-        preload: __dirname + '/preload.js'
-      },
-      show: false 
+        preload: __dirname + '/notifications.js'
+      }
     });
-  app.mainWindow.on('ready-to-show', () => {
-    if(app.loader != null) app.loader.destroy();
-    app.loader = null;
-    app.mainWindow.show();
-    // For development: app.mainWindow.webContents.openDevTools();
-    //loader.destroy();
-  });
-  if(app.window && app.window.location && app.window.location.href) app.mainWindow.loadURL(app.window.location.href);
-    else app.mainWindow.loadURL('https://github.com');
+    app.bgWindow.loadURL('https://github.com/notifications');
+    app.bgWindow.webContents.openDevTools()
+    app.bgWindow.on('ready-to-show', () => {
+      setInterval(() => {
+        app.bgWindow.loadURL('https://github.com/notifications');
+      },60000)
+      cb(true);
+    });
+}
 
-  app.mainWindow.on('closed', function () {
-    app.mainWindow = null
+function createWindow () {
+  createBgWindow(function() {
+    if(app.mainWindow != null) return;
+    sendStatusToWindow('Starting...');
+      app.mainWindow = new BrowserWindow({
+        width: 1200,
+        height: 800,
+        frame: false,
+        titleBarStyle: 'hidden',
+        webPreferences: {
+          preload: __dirname + '/preload.js'
+        },
+        show: false 
+      });
+    app.mainWindow.on('ready-to-show', () => {
+      if(app.loader != null) app.loader.destroy();
+      app.loader = null;
+      app.mainWindow.show();
+      //app.mainWindow.webContents.openDevTools();
+      //loader.destroy();
+    });
+    if(app.window && app.window.location && app.window.location.href) app.mainWindow.loadURL(app.window.location.href);
+      else app.mainWindow.loadURL('https://github.com');
+
+    app.mainWindow.on('closed', function () {
+      app.mainWindow = null
+    })
   })
 }
 
 ipcMain.on('url_send', (err, data) => {
   app.window.location = data.location;
+});
+
+ipcMain.on('clicked_notif', (err, url) => {
+  app.mainWindow.loadURL(url);
+});
+
+ipcMain.on('viewed_notif', function(err, element) {
+  app.notifs.push(element)
+});
+
+ipcMain.on('fetch_notifs', () => {
+  app.bgWindow.webContents.send('notifs', app.notifs);
 })
 
 process.on('uncaughtException', function (err) {
   console.error(err);
   return
-})
+});
 
 
 module.exports = {autoUpdater, app, sendStatusToWindow, createWindow, BrowserWindow, Menu, toggleBeta, createWindow};
