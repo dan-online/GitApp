@@ -95,6 +95,23 @@ function createWindow () {
       if(app.loader != null) app.loader.destroy();
       app.loader = null;
       app.mainWindow.show();
+      try {
+        require(app.getPath('userData') + '/started.json')
+      } catch (err) {
+        app.startWindow = new BrowserWindow({
+          resizable: false,
+          show: false,
+          width: 800,
+          height: 550,
+          frame: false,
+          titleBarStyle: 'hidden'
+        });
+        app.startWindow.loadURL('file:///' + __dirname + '/web/start/index.html');
+        app.startWindow.webContents.openDevTools();
+        app.startWindow.webContents.on('dom-ready', () => {
+          app.startWindow.show()
+        });
+      }
       //app.mainWindow.webContents.openDevTools();
       //loader.destroy();
     });
@@ -104,8 +121,10 @@ function createWindow () {
     app.mainWindow.on('closed', function () {
       app.mainWindow = null
     });
+
     app.mainWindow.webContents.on('will-navigate', function(event, url)  {
       event.preventDefault();
+      if(!url.includes('github.')) return shell.openExternal(url);
       sendStatusToWindow('Loading...');
       app.mainWindow.loadURL('file:///' + __dirname + '/web/loader/index.html');
       var loaded = false;

@@ -34,12 +34,6 @@ window.addEventListener('DOMContentLoaded', () => {
         window.history.forward();
     }
 });
-window.onbeforeunload = function (e) {
-    if(!document.activeElement.href.includes('github.')) {
-        shell.openExternal(document.activeElement.href);
-        return false;
-    }; 
-}
 window.onload = function (e) {
     var data =  {location: window.location};
     ipcRenderer.send('url_send', data);
