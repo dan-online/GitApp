@@ -5,8 +5,6 @@ cd ..;
 cd Android;
 npm version $1;
 sudo npm run package;
-git add .;
-git commit -m 'Bump to '$1;
 echo 'Uploading apk...';
 sudo github-release upload \
   --token $GH_TOKEN \
@@ -14,4 +12,7 @@ sudo github-release upload \
   --repo 'GitApp' \
   --tag 'v'$1 \
   --file 'dist/app-aligned-debugSigned.apk' \
-  --name 'GitApp-android-'$1'.apk'
+  --name 'GitApp-android-'$1'.apk';
+cd ..;
+git add .;
+git commit -m 'Bump: ' $1;
