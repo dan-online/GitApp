@@ -76,7 +76,7 @@ body {
   font-family: "Open Sans", sans-serif;
   width: 200px;
   height: 200px;
-  background: #222;
+  background: #24292e;
 }
 
 .e-loadholder {
@@ -90,7 +90,7 @@ body {
   transform: translate(-51%, -50%);
   width: 200px;
   height: 200px;
-  border: 5px solid #1B5F70;
+  border: #24292e;
   border-radius: 120px;
   box-sizing: border-box;
 }
@@ -105,7 +105,7 @@ body {
   transform: translate(-51%, -50%);
   content: " ";
   display: block;
-  background: #222;
+  background: #24292e;
   transform-origin: center;
   z-index: 0;
 }
@@ -128,7 +128,7 @@ body {
   transform: translate(-51%, -50%);
   width: 200px;
   height: 200px;
-  color: #888;
+  color: #fff;
   text-align: center;
   border: 5px solid #2a93ae;
   border-radius: 100px;
@@ -147,7 +147,7 @@ body {
   transform: translate(-51%, -50%);
   content: " ";
   display: block;
-  background: #222;
+  background: #24292e;
   transform-origin: center;
   z-index: -1;
 }
@@ -191,7 +191,7 @@ body {
   transform: translate(-51%, -50%);
   content: " ";
   display: block;
-  background: #222;
+  background: #24292e;
   transform-origin: center;
   z-index: -1;
 }
