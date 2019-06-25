@@ -4,6 +4,8 @@ sudo npm run release --allow-same-version;
 cd ..;
 cd Android;
 npm version $1 --allow-same-version;
+git add .;
+git commit -m 'Bump: ' $1;
 sudo npm run package;
 echo 'Uploading apk...';
 sudo github-release upload \
