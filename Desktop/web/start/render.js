@@ -1,4 +1,4 @@
-const {ipcRenderer, shell} = require('electron');
+const {ipcRenderer} = require('electron');
       ipcRenderer.on('message', function(event, text,err) {
             if(err) {
                   console.error(err);
@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const titlebar = new customTitlebar.Titlebar({
                   backgroundColor: customTitlebar.Color.fromHex('#24292e'),
             });
-            titlebar.updateTitle('GitApp - ' + require('./package.json').version);
+            titlebar.updateTitle('GitApp - ' + require('../../package.json').version);
             const bar = document.getElementsByClassName("titlebar")[0];
             bar.innerHTML = bar.innerHTML + `
             <a style="margin-top:0.1rem" id="back">

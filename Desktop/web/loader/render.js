@@ -7,14 +7,13 @@ const {ipcRenderer} = require('electron');
       m.innerHTML = text;
 });
 window.addEventListener('DOMContentLoaded', () => {
-      //document.title = 'GitApp - ' + require('./package.json').version;
       const customTitlebar = require('custom-electron-titlebar');
       
       if(document.width > 400) {
             const titlebar = new customTitlebar.Titlebar({
                   backgroundColor: customTitlebar.Color.fromHex('#24292e'),
             });
-            titlebar.updateTitle('GitApp - ' + require('./package.json').version);
+            titlebar.updateTitle('GitApp - ' + require('../../package.json').version);
             const bar = document.getElementsByClassName("titlebar")[0];
             bar.innerHTML = bar.innerHTML + `
             <a style="margin-top:0.1rem" id="back">

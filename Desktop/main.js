@@ -104,11 +104,14 @@ function createWindow () {
           width: 800,
           height: 550,
           frame: false,
-          titleBarStyle: 'hidden'
+          titleBarStyle: 'hidden',
+          webPreferences: {
+            nodeIntegration: true
+          }
         });
         fs.writeFileSync(app.getPath('userData') + '/started.json', `{"started": true}`);
         app.startWindow.loadURL('file:///' + __dirname + '/web/start/index.html');
-        app.startWindow.webContents.openDevTools();
+        //app.startWindow.webContents.openDevTools();
         app.startWindow.webContents.on('dom-ready', () => {
           app.startWindow.show()
         });
