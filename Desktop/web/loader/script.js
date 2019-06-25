@@ -1,3 +1,17 @@
+var i;
+setInterval(() => {
+	if(document.getElementById('s') && document.getElementById('s').innerText != 0) {
+		if(!i) {
+			i = setInterval(() => {
+				document.getElementById('s').innerHTML = parseInt(document.getElementById('s').innerHTML) -1
+			},1000);
+		}
+	} else {
+		clearInterval(i);
+		i = null;
+	}
+}, 100)
+
 particlesJS("particleCanvas-Blue", {
 	particles: {
 		number: {

@@ -44,6 +44,7 @@
     "custom-electron-titlebar": "^3.0.9",
     "electron-log": "^3.0.6",
     "electron-updater": "^4.0.6",
-    "file-system": "^2.2.2"
+    "file-system": "^2.2.2",
+    "is-online": "^8.2.0"
   }
 }

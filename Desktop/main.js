@@ -70,6 +70,7 @@ function createBgWindow(cb) {
     app.bgWindow.webContents.openDevTools()
     app.bgWindow.on('ready-to-show', () => {
       setInterval(() => {
+        console.log('checking for notifications')
         app.bgWindow.loadURL('https://github.com/notifications');
       },60000)
       cb(true);
@@ -102,9 +103,21 @@ function createWindow () {
 
     app.mainWindow.on('closed', function () {
       app.mainWindow = null
-    })
+    });
+    app.mainWindow.webContents.on('will-navigate', function(event, url)  {
+      event.preventDefault();
+      sendStatusToWindow('Loading...');
+      app.mainWindow.loadURL('file:///' + __dirname + '/web/loader/index.html');
+      var loaded = false;
+      app.mainWindow.webContents.on('dom-ready', function() {
+        if(loaded) return;
+        loaded = true;
+        return app.mainWindow.loadURL(url);
+      })
+    });
   })
 }
+
 
 ipcMain.on('url_send', (err, data) => {
   app.window.location = data.location;
