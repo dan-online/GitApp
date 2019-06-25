@@ -106,6 +106,7 @@ function createWindow () {
           frame: false,
           titleBarStyle: 'hidden'
         });
+        fs.writeFileSync(app.getPath('userData') + '/started.json', `{"started": true}`);
         app.startWindow.loadURL('file:///' + __dirname + '/web/start/index.html');
         app.startWindow.webContents.openDevTools();
         app.startWindow.webContents.on('dom-ready', () => {
