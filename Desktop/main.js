@@ -24,12 +24,10 @@ function toggleBeta() {
 
 function addListener(err, files, on) {
   files.forEach(f => {
-    console.log(f)
     const fileName = f.split('.')[0]
     if(f.split('.')[1] != 'js') return;
     if(on == 'app') var props = require('./events/app/' + f)
     if(on == 'autoUpdater') props = require('./events/autoUpdater/' + f);
-    console.log(props)
     if(!props) return;
     if(on == 'app') {
       return app.on(fileName, props.func);
