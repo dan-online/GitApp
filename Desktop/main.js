@@ -1,5 +1,5 @@
 
-const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const {app, BrowserWindow, Menu, ipcMain, shell} = require('electron');
 const fs = require("file-system");
 const log = require('electron-log');
 const { autoUpdater } = require("electron-updater");
