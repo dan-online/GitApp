@@ -104,10 +104,7 @@ function createWindow () {
           width: 800,
           height: 550,
           frame: false,
-          titleBarStyle: 'hidden',
-          webPreferences: {
-            nodeIntegration: true
-          }
+          titleBarStyle: 'hidden'
         });
         fs.writeFileSync(app.getPath('userData') + '/started.json', `{"started": true}`);
         app.startWindow.loadURL('file:///' + __dirname + '/web/start/index.html');
