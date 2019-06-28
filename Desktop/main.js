@@ -65,10 +65,8 @@ function createBgWindow(cb) {
       }
     });
     app.bgWindow.loadURL('https://github.com/notifications');
-    app.bgWindow.webContents.openDevTools()
     app.bgWindow.on('ready-to-show', () => {
       setInterval(() => {
-        console.log('checking for notifications')
         app.bgWindow.loadURL('https://github.com/notifications');
       },60000)
       cb(true);
