@@ -12,3 +12,10 @@ sudo github-release upload --token $GH_TOKEN --owner 'dan-online' --repo 'GitApp
 cd ..;
 git add .;
 git commit -m 'Bump: '$1;
+echo `{
+    "version": "`$1`",
+    "state": "stable",
+    "scope": "minor bugfix",
+    "changes": "Features and bug fixes",
+    "download": "https://github.com/dan-online/GitApp/releases/tag/v$version"
+}` > releases.json;
