@@ -17,5 +17,5 @@ echo `{
     "state": "stable",
     "scope": "minor bugfix",
     "changes": "Features and bug fixes",
-    "download": "https://github.com/dan-online/GitApp/releases/tag/v$version"
+    "download": "https://github.com/dan-online/GitApp/releases/tag/v`$1`"
 }` > releases.json;

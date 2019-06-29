@@ -1,4 +1,3 @@
-version: 2.6.3
 provider: github
 repo: GitApp
 owner: dan-online
