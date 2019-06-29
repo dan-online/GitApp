@@ -22,6 +22,9 @@ window.onload = function () {
                 body: n.parentElement.parentElement.innerText.split('/')[0] + '/' + n.parentElement.parentElement.innerText.split('/')[1].split(`
     `)[0] + ' - ' + n.getElementsByTagName('a')[0].innerText
             });
+            setTimeout(() => {
+                window.location.reload();
+            },60000)
             sent.onclick = function() {
                 ipcRenderer.send('clicked_notif', n.getElementsByTagName('a')[0].href)
             }
