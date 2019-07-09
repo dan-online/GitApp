@@ -42,7 +42,11 @@ $ npm start
 ```
 
 ### Building
-
+#### Desktop
 ```bash
-$ build --mac/--windows/--linux
+$ cd Desktop; build --mac/--windows/--linux
+```
+#### Android
+```bash
+$ cd Android; npm run package;
 ```
