@@ -8,14 +8,14 @@ git add .;
 git commit -m "Bump: $1";
 sudo npm run package;
 echo 'Uploading apk...';
-sudo github-release upload --token $GH_TOKEN --owner 'dan-online' --repo 'GitApp' --tag "v$1" --file 'dist/app-aligned-debugSigned.apk' --name "GitApp-android-$1.apk";
+sudo github-release upload --token "$GH_TOKEN" --owner 'dan-online' --repo 'GitApp' --tag "v$1" --file 'dist/app-aligned-debugSigned.apk' --name "GitApp-android-$1.apk";
 cd ..;
 git add .;
 git commit -m 'Bump: '$1;
 echo "{
-    'version': '$1',
-    'state': 'stable',
-    'scope': 'minor bugfix',
-    'changes': 'Features and bug fixes',
-    'download': 'https://github.com/dan-online/GitApp/releases/tag/v$1'
+    \"version\": \"$1\",
+    \"state\": \"stable\",
+    \"scope\": \"minor bugfix\",
+    \"changes\": \"Features and bug fixes\",
+    \"download\": \"https://github.com/dan-online/GitApp/releases/tag/v$1\"
 }" > releases.json;

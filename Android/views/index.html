@@ -1,9 +1,13 @@
 <script type="text/javascript" src="../assets/androidjs.js"></script>
 <script>
-  let link = app.deeplink.getLink();
-  if (link != "-1") {
-    app.loadURL(link);
-  } else {
+  try {
+    let link = app.deeplink.getLink();
+    if (linklink != "-1") {
+      app.loadURL(link);
+    } else {
+      app.loadURL("https://github.com");
+    }
+  } catch (err) {
     app.loadURL("https://github.com");
   }
 </script>
