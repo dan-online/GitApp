@@ -6,7 +6,6 @@ const {ipcRenderer} = require('electron');
       var m = document.getElementById('messages');
       m.innerHTML = text;
 });
-window.addEventListener('DOMContentLoaded', () => {
       const customTitlebar = require('custom-electron-titlebar');
       
       if(document.width > 400) {
@@ -32,4 +31,3 @@ window.addEventListener('DOMContentLoaded', () => {
             window.history.forward();
             }
       }
-})

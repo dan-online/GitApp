@@ -6,7 +6,10 @@ const {
   BrowserWindow,
   Menu,
   sendStatusToWindow,
-  toggleBeta
+  toggleBeta,
+  Tray,
+  trayWindow,
+  createWindow
 } = require("../../main");
 module.exports.func = function() {
   try {
@@ -40,7 +43,12 @@ module.exports.func = function() {
       label: "File",
       submenu: [
         process.platform === "darwin" ? { role: "close" } : { role: "quit" },
-        {label: beta, click: function() {toggleBeta()}}
+        {
+          label: beta,
+          click: function() {
+            toggleBeta();
+          }
+        }
       ]
     },
     // { role: 'editMenu' }
@@ -113,16 +121,55 @@ module.exports.func = function() {
   ];
   const menuBuilt = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(menuBuilt);
-
+  app.tray = new Tray(
+    "/Users/daniel/Desktop/Code/Github-Web/Desktop/build/tiny.png"
+  );
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: "Open GitApp",
+      click() {
+        createWindow();
+      }
+    },
+    {
+      label: "Upload clipboard to Gist",
+      click() {
+        const prompt = require("electron-prompt");
+        app.upload = new BrowserWindow({
+          show: false,
+          height: 800,
+          width: 1000,
+          webPreferences: {
+            preload: __dirname + "/../../gist.js"
+          }
+        });
+        prompt({
+          title: "Gist Upload",
+          label:
+            "Please provide a filename and extension. Example: cool_name.js",
+          inputAttrs: {
+            type: "text",
+            required: true
+          }
+        }).then(filename => {
+          if (!filename) filename = "upload-" + Math.random() + ".txt";
+          app.upload.loadURL("https://gist.github.com/?filename=" + filename);
+          app.upload.show();
+        });
+      }
+    }
+  ]);
+  app.tray.setToolTip("GitApp is online");
+  app.tray.setContextMenu(contextMenu);
+  app.tray.on("right-click", trayWindow);
+  app.tray.on("double-click", trayWindow);
+  app.tray.on("click", trayWindow);
   app.loader = new BrowserWindow({
     width: 300,
     height: 300,
     frame: false,
     show: false,
-    resizable: false,
-    webPreferences: {
-      nodeIntegration: true
-    }
+    resizable: false
   });
   app.loader.webContents.on("dom-ready", function() {
     app.loader.show();
