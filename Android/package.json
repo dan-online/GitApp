@@ -1,6 +1,6 @@
 {
   "name": "GitApp",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Android version of GitApp",
   "main": "main.js",
   "app-name": "GitApp",
@@ -24,8 +24,26 @@
   "bugs": {
     "url": "https://github.com/dan-online/GitApp/issues"
   },
+  "deep-link": [
+    {
+      "scheme": "http",
+      "host": "github.com"
+    },
+    {
+      "scheme": "https",
+      "host": "github.com"
+    },
+    {
+      "scheme": "http",
+      "host": "github.co.uk"
+    },
+    {
+      "scheme": "https",
+      "host": "github.co.uk"
+    }
+  ],
   "homepage": "https://github.com/dan-online/GitApp#readme",
   "dependencies": {
-    "androidjs": "^1.0.12"
+    "androidjs": "^2.0.1"
   }
 }
