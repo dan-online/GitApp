@@ -1,8 +1,7 @@
-
 {
-    "version": "3.0.3",
-    "state": "stable",
-    "scope": "minor bugfix",
-    "changes": "Features and bug fixes",
-    "download": "https://github.com/dan-online/GitApp/releases/tag/v$version"
+    'version': '3.0.4',
+    'state': 'stable',
+    'scope': 'minor bugfix',
+    'changes': 'Features and bug fixes',
+    'download': 'https://github.com/dan-online/GitApp/releases/tag/v3.0.4'
 }
