@@ -121,7 +121,7 @@ module.exports.func = function() {
   ];
   const menuBuilt = Menu.buildFromTemplate(menuTemplate);
   Menu.setApplicationMenu(menuBuilt);
-  app.tray = new Tray("/../../build/tiny.png");
+  app.tray = new Tray(__dirname + "/../../build/tiny.png");
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Open GitApp",
