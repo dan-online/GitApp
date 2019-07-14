@@ -1,0 +1,1 @@
+echo `git config github.token`

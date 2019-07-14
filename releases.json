@@ -1,7 +1,7 @@
 {
-    "version": "3.2.0",
+    "version": "3.2.1",
     "state": "stable",
     "scope": "minor bugfix",
     "changes": "Features and bug fixes",
-    "download": "https://github.com/dan-online/GitApp/releases/tag/v3.2.0"
+    "download": "https://github.com/dan-online/GitApp/releases/tag/v3.2.1"
 }
