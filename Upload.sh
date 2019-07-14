@@ -10,8 +10,6 @@ sudo npm run package;
 echo 'Uploading apk...';
 sudo github-release upload --token `git config github.token` --owner 'dan-online' --repo 'GitApp' --tag "v$1" --file 'dist/app.apk' --name "GitApp-android-$1.apk";
 cd ..;
-git add .;
-git commit -m "Bump: $1";
 echo "{
     \"version\": \"$1\",
     \"state\": \"stable\",
@@ -19,3 +17,5 @@ echo "{
     \"changes\": \"Features and bug fixes\",
     \"download\": \"https://github.com/dan-online/GitApp/releases/tag/v$1\"
 }" > releases.json;
+git add .;
+git commit -m "Bump: $1";
