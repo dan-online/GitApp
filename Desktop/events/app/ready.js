@@ -167,7 +167,10 @@ module.exports.func = function() {
     height: 300,
     frame: false,
     show: false,
-    resizable: false
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   app.loader.webContents.on("dom-ready", function() {
     app.loader.show();
