@@ -1,6 +1,6 @@
 cd Desktop;
-npm version $1;
-sudo npm run release --allow-same-version;
+npm version $1 --allow-same-version;
+sudo npm run release;
 cd ..;
 cd Android;
 npm version $1 --allow-same-version;
