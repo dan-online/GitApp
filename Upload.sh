@@ -19,3 +19,8 @@ echo "{
 }" > releases.json;
 git add .;
 git commit -m "Bump: $1";
+curl https://api.github.com/repos/dan-online/GitApp/releases -H "Authorization: token "`git config github.token` > file.json;
+ID=`node -e "console.log(require('./file.json')[0].id)"`;
+curl -H "Content-Type:application/json" --data "{\"name\":\"GitApp v$1\", \"body\": \"$2\", \"prerelease\": \"false\"}" "https://api.github.com/repos/dan-online/GitApp/releases/$ID" -H "Authorization: token "`git config github.token` -X PATCH;
+rm file.json;
+
