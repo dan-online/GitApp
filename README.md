@@ -3,12 +3,16 @@
 
 A simple app for working on github.com
 
+You can find the website at [gitapp.dancodes.online](https://gitapp.dancodes.online)
+
 # Features
  - Auto Updating to latest github release
  - Clean delivery of github
  - Easy use
  - Clean UI
-
+ - Notifications
+ - Tray icon for fast access
+ 
 # [Download](https://github.com/dan-online/GitApp/releases)
 
 All downloads are [here](https://github.com/dan-online/GitApp/releases)
@@ -50,3 +54,5 @@ $ cd Desktop; build --mac/--windows/--linux
 ```bash
 $ cd Android; npm run package;
 ```
+
+This readme was written in the app :)
