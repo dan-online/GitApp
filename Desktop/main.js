@@ -110,7 +110,7 @@ function createWindow() {
           app.startWindow.show();
         });
       }
-      //app.mainWindow.webContents.openDevTools();
+      app.mainWindow.webContents.openDevTools();
       //loader.destroy();
     });
     if (app.window && app.window.location && app.window.location.href)
@@ -122,9 +122,10 @@ function createWindow() {
     });
 
     app.mainWindow.webContents.on("will-navigate", function(event, url) {
-      event.preventDefault();
-      if (!url.includes("github.")) return shell.openExternal(url);
-      return app.mainWindow.loadURL(url);
+      if (!url.includes("github.")) {
+        event.preventDefault();
+        return shell.openExternal(url);
+      }
     });
   });
 }

@@ -71,7 +71,7 @@ window.onload = function(e) {
   $("#search-gitapp").blur();
   $(document).on("keyup", function(e) {
     console.log(e.keyCode);
-    if (e.keyCode !== 13) return;
+    if (e.keyCode !== 13 || !$("#search-gitapp").is(":focus")) return;
     window.location = $("#search-gitapp").val();
   });
 };
