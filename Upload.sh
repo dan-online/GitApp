@@ -8,7 +8,7 @@ git add .;
 git commit -m "Bump: $1";
 sudo npm run package;
 echo 'Uploading apk...';
-sudo github-release upload --token `git config github.token` --owner 'dan-online' --repo 'GitApp' --tag "v$1" --file 'dist/app.apk' --name "GitApp-android-$1.apk";
+sudo github-release upload --token `git config github.token` --owner 'dan-online' --repo 'GitApp' --tag "v$1" --file 'dist/app.apk' --name "GitApp-Android-$1.apk";
 cd ..;
 echo "{
     \"version\": \"$1\",
