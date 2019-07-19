@@ -1,7 +1,7 @@
 {
-    "version": "3.3.2",
-    "state": "stable",
-    "scope": "minor bugfix",
-    "changes": "Features and bug fixes",
-    "download": "https://github.com/dan-online/GitApp/releases/tag/v3.3.2"
+  "version": "3.3.2",
+  "state": "stable",
+  "scope": "minor bugfix",
+  "changes": "URL, notifications, tray icon",
+  "download": "https://github.com/dan-online/GitApp/releases/tag/v3.3.2"
 }
