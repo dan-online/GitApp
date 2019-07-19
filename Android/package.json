@@ -1,6 +1,6 @@
 {
   "name": "GitApp",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "Android version of GitApp",
   "main": "main.js",
   "app-name": "GitApp",
