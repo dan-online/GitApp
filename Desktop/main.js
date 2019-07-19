@@ -110,7 +110,7 @@ function createWindow() {
           app.startWindow.show();
         });
       }
-      app.mainWindow.webContents.openDevTools();
+      //app.mainWindow.webContents.openDevTools();
       //loader.destroy();
     });
     if (app.window && app.window.location && app.window.location.href)
