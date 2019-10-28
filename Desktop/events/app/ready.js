@@ -23,7 +23,7 @@ module.exports.func = function() {
     ...(process.platform === "darwin"
       ? [
           {
-            label: app.getName(),
+            label: app.name,
             submenu: [
               { role: "about" },
               { type: "separator" },
