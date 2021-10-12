@@ -38,7 +38,7 @@
   "author": "DanCodes",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^7.0.0"
+    "electron": "^11.5.0"
   },
   "dependencies": {
     "custom-electron-titlebar": "^3.0.9",
